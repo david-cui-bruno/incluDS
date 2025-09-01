@@ -1,0 +1,74 @@
+
+/* Headspace-inspired Override Theme (Blue/Yellow) — style-only */
+:root{
+  --bg:#f7fbff;
+  --surface:#ffffff;
+  --ink:#0b1221;
+  --muted:#41536f;
+  --brand:#1d4ed8;
+  --brand-ink:#eaf2ff;
+  --accent:#facc15;
+  --accent-ink:#0b1221;
+  --border:#e2e8f0;
+  --focus:#2563eb;
+  --round:16px;
+  --shadow-1:0 1px 0 rgba(2,6,23,.04);
+  --shadow-2:0 8px 20px rgba(2,6,23,.08);
+}
+
+/* Global + containers */
+html,body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header & nav */
+header{background:var(--surface);border-bottom:4px solid var(--brand);box-shadow:var(--shadow-1)}
+.topbar{padding:16px 0}
+.brand h1{color:var(--ink);font-weight:800}
+.logo{height:28px;width:auto}
+nav .menu{gap:18px;padding:12px 0}
+nav a{padding:10px 16px;border-radius:999px;color:var(--ink);font-weight:700;transition:transform .18s ease, background .18s ease}
+nav a:hover{transform:translateY(-1px);background:var(--brand-ink)}
+nav a.active{background:var(--brand);color:#fff}
+
+/* Search & translator */
+.searchbar input{background:#f0f4ff;border:1px solid var(--border);border-radius:12px;padding:10px 38px 10px 12px}
+.translator select,.translator input{background:#f0f4ff;border:1px solid var(--border);border-radius:12px;padding:8px 10px}
+#translateBtn,#resetLangBtn,button[title="Back to English"]{background:var(--accent);border:1px solid #d1a90a;color:#111;border-radius:10px;padding:8px 10px}
+
+/* Main */
+main{padding:22px 0 80px}
+.page-title{color:#0b2a6b;font-size:clamp(26px,4vw,40px)}
+
+/* Cards */
+.cards{gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--round);box-shadow:var(--shadow-1);
+  padding:20px;transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-1px);box-shadow:var(--shadow-2)}
+.card h3{color:#0b2a6b;font-size:clamp(20px,2.5vw,28px)}
+
+/* Accent first-card bands per section */
+#home .card:first-child{background:linear-gradient(180deg,#fffdf1,#ffffff)}
+#studies .card:first-child{background:linear-gradient(180deg,#eef5ff,#ffffff)}
+#summarizer .card:first-child{background:linear-gradient(180deg,#fffbea,#ffffff)}
+#resources .card:first-child{background:linear-gradient(180deg,#eef5ff,#ffffff)}
+#procedures .card:first-child{background:linear-gradient(180deg,#eef5ff,#ffffff)}
+
+/* Buttons */
+.actions{gap:10px}
+.btn{border-radius:12px;border:1px solid #cbd5e1;background:#fff;font-weight:700;padding:10px 14px;transition:transform .18s ease, background .18s ease}
+.btn:hover{transform:translateY(-1px);background:#eff6ff}
+.btn.primary{background:linear-gradient(180deg,#1d4ed8,#153ea8);border-color:#153ea8;color:#fff}
+.btn.small{padding:8px 10px}
+
+/* Inputs */
+input[type="text"],input[type="search"],select,textarea{border-radius:12px;border:1px solid #cbd5e1}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(29,78,216,.25)}
+
+/* Footer & modal */
+footer{border-top:4px solid var(--accent)}
+.modal .panel{border-top:6px solid var(--brand);border-radius:14px}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}

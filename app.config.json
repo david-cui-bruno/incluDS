@@ -1,0 +1,17 @@
+{
+  "title": "incluDS \u2014 Inclusive Tools for Down Syndrome",
+  "logo": "assets/logo.png",
+  "logoAlt": "incluDS heart logo",
+  "colors": {
+    "--bg": "#f7fbff",
+    "--surface": "#ffffff",
+    "--ink": "#0b1221",
+    "--muted": "#41536f",
+    "--brand": "#1d4ed8",
+    "--brand-ink": "#eaf2ff",
+    "--accent": "#facc15",
+    "--accent-ink": "#0b1221",
+    "--border": "#e2e8f0",
+    "--focus": "#2563eb"
+  }
+}

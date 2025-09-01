@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>incluDS — v4.2 (menu nav fix)</title>
+<meta content="incluDS — a friendly, inclusive site for people with Down syndrome and their families." name="description"/>
+
+<link href="theme.css" rel="stylesheet"/><script>function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ar,bn,de,en,es,fr,hi,it,ja,ko,nl,pl,pt,ru,tl,vi,zh-CN,zh-TW',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }</script><script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><script defer="True" src="app.js"></script></head>
+<body>
+<header>
+<div class="wrap">
+<div class="topbar" role="banner">
+<a aria-label="incluDS home" class="brand" data-nav="" href="#home">
+<!-- Three-colored heart logo (SVG) -->
+
+<img alt="incluDS logo" class="logo" id="brandLogo" src="assets/logo.png" style="height:28px;width:auto"/><h1 style="margin:0">incluDS</h1>
+</a>
+<div class="right-tools">
+<!-- Translation toolbar -->
+<div aria-label="Page translation" class="translator">
+<label class="sr-only" for="langSelect">Pick a language</label>
+<select id="langSelect">
+<option value="">Choose language…</option>
+<option value="en">English (English)</option>
+<option value="es">Español (Spanish)</option>
+<option value="fr">Français (French)</option>
+<option value="de">Deutsch (German)</option>
+<option value="pt">Português (Portuguese)</option>
+<option value="it">Italiano (Italian)</option>
+<option value="nl">Nederlands (Dutch)</option>
+<option value="pl">Polski (Polish)</option>
+<option value="ru">Русский (Russian)</option>
+<option value="ar">العربية (Arabic)</option>
+<option value="hi">हिन्दी (Hindi)</option>
+<option value="bn">বাংলা (Bengali)</option>
+<option value="zh">中文 (Chinese)</option>
+<option value="ja">日本語 (Japanese)</option>
+<option value="ko">한국어 (Korean)</option>
+<option value="vi">Tiếng Việt (Vietnamese)</option>
+<option value="tl">Tagalog (Filipino)</option>
+</select>
+</div>
+<div>
+<input id="langOther" placeholder="Lang Code(es,fr..)" style="height:30px"/>
+</div>
+
+
+<div>
+<button id="translateBtn" style="width:200px;height:30px" title="Translate whole page">🌐 Translate</button>
+<button onclick="toEnglish()" style="width:200px;height:30px" title="Back to English">↩ English</button>
+</div>
+<!-- Site-wide search -->
+<div class="searchbar" role="search">
+<label class="sr-only" for="siteSearch">Search the whole site</label>
+<input id="siteSearch" placeholder="Search the whole site…" type="search"/>
+<button aria-label="Search" onclick="SiteSearch.open()" title="Search">🔎</button>
+</div>
+</div>
+</div>
+</div>
+<nav aria-label="Main">
+<div class="wrap">
+<div class="menu" id="topMenu">
+<a data-nav="" href="#home" id="link-home">Home</a>
+<a data-nav="" href="#studies" id="link-studies">Research Studies</a>
+<a data-nav="" href="#summarizer" id="link-summarizer">Easy Summary Tool</a>
+<a data-nav="" href="#resources" id="link-resources">Find Help Nearby</a>
+<a data-nav="" href="#procedures" id="link-procedures">Study Procedures</a>
+</div>
+</div>
+</nav>
+</header>
+<main class="wrap">
+<!-- HOME -->
+<section data-page="Home" id="home">
+<h2 class="page-title">Welcome to incluDS</h2>
+<div class="cards">
+<article class="card" data-card="">
+<h3>What is Down syndrome?</h3>
+<p>
+          Down syndrome is a natural difference that starts before birth. It happens when a person has an extra copy of chromosome 21.
+          Chromosomes are tiny “instruction books” in our cells. Most people have two copies of chromosome 21. People with Down syndrome have three.
+          You may hear three types: <strong>trisomy 21</strong> (most common), <strong>translocation</strong>, and <strong>mosaic</strong>.
+        </p>
+<p>
+          People with Down syndrome are part of every community. Many children and adults with Down syndrome learn in school, work at jobs,
+          build friendships, and enjoy hobbies. Inclusion means everyone belongs and has a voice.
+        </p>
+<div class="actions"><button class="btn small" data-read="">🔊 Read this box</button></div>
+</article>
+<article class="card" data-card="">
+<h3>Quick facts (friendly and positive)</h3>
+<ul>
+<li>About <strong>1 in 700</strong> babies in the United States is born with Down syndrome.</li>
+<li>Down syndrome is found in families of <strong>every background</strong>.</li>
+<li>Early services like speech, physical therapy, and occupational therapy help children build daily skills.</li>
+<li>Regular checkups for vision, hearing, sleep, thyroid, heart, and dental health help you stay well.</li>
+</ul>
+<div class="actions"><button class="btn small" data-read="">🔊 Read this box</button></div>
+</article>
+</div>
+</section>
+<!-- STUDIES -->
+<section data-page="Research Studies" hidden="" id="studies">
+<h2 class="page-title">Research Studies in the United States</h2>
+<div class="card" data-card="">
+<p class="muted">Browse major U.S. studies since 2000. Sort by year or name. Each study has a friendly one-paragraph summary and a link to the official page.</p>
+<div class="actions">
+<label class="sr-only" for="studySort">Sort studies</label>
+<select aria-label="Sort studies" id="studySort">
+<option value="year-desc">Year (new → old)</option>
+<option value="year-asc">Year (old → new)</option>
+<option value="name-asc">Name (A → Z)</option>
+<option value="name-desc">Name (Z → A)</option>
+</select>
+<label class="sr-only" for="studyFilter">Search studies</label>
+<input id="studyFilter" placeholder="Search studies…" type="search"/>
+<button class="btn small" onclick="renderStudies()">Apply</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+</div>
+<div aria-live="polite" class="cards" id="studiesList"></div>
+</section>
+<!-- SUMMARIZER -->
+<section data-page="Easy Summary Tool" hidden="" id="summarizer">
+<h2 class="page-title">Easy Summary Tool</h2>
+<div class="cards">
+<article class="card" data-card="">
+<h3>Summarize text or a file</h3>
+<label for="sumText">Paste text</label>
+<textarea id="sumText" placeholder="Paste here…"></textarea>
+<label for="sumFile">…or upload a .txt file</label>
+<input accept=".txt" id="sumFile" type="file"/>
+<div class="actions">
+<button class="btn primary" id="doSummarize">Summarize at an 8th-grade level</button>
+<button class="btn" id="clearSummary">Clear</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+</article>
+<article class="card" data-card="" hidden="" id="summaryCard">
+<h3>Your summary</h3>
+<div id="summaryOut"></div>
+<div class="actions"><button class="btn small" data-read="">🔊 Read this box</button></div>
+</article>
+<article class="card" data-card="">
+<h3>Ask follow-up questions about the summary</h3>
+<div id="qaBox">
+<label for="qaInput">Type your question</label>
+<input id="qaInput" placeholder="What does this part mean?" type="text"/>
+<div class="actions">
+<button class="btn" id="askQA">Ask</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+<div aria-live="polite" class="cards" id="qaLog"></div>
+</div>
+</article>
+</div>
+</section>
+<!-- RESOURCES -->
+<section data-page="Find Help Nearby" hidden="" id="resources">
+<h2 class="page-title">Find Help Nearby</h2>
+<div class="cards">
+<article class="card" data-card="">
+<h3>Search by address, ZIP, or City</h3>
+<p>Type your address, ZIP code, or city. Address/ZIP will sort results by distance; City will filter by location.</p>
+<label for="addr">Address, City, or ZIP</label>
+<input id="addr" placeholder="e.g., Providence or 02912 or 123 Main St, Providence, RI" type="text"/>
+<div class="actions">
+<button class="btn primary" id="geoBtn">Search</button>
+<button class="btn" id="resetDist">Reset</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+</article>
+<article class="card" data-card="">
+<h3>Resources list</h3>
+<div class="actions">
+<span class="pill">Neurologists</span>
+<span class="pill">Down Syndrome societies</span>
+<span class="pill">Support groups</span>
+<span class="pill">Clinics</span>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+<div class="cards" id="resourceList"></div>
+</article>
+</div>
+</section>
+<!-- PROCEDURES -->
+<section data-page="Study Procedures" hidden="" id="procedures">
+<h2 class="page-title">Study Procedures</h2>
+<article class="card" data-card="">
+<div class="actions" style="gap:8px;align-items:center">
+<label class="sr-only" for="procSearch">Search procedures</label>
+<input id="procSearch" placeholder="Search procedures…" style="flex:1" type="search"/>
+<label class="sr-only" for="procSort">Sort procedures</label>
+<select id="procSort">
+<option value="name-asc">Name (A → Z)</option>
+<option value="name-desc">Name (Z → A)</option>
+</select>
+<button class="btn small" onclick="renderProcedures()">Apply</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+</article>
+<div class="cards" id="procCards"></div>
+<article class="card" data-card="" style="margin-top:16px">
+<h3>Questions about procedures? Ask here.</h3>
+<p>Type a question about any procedure on this page. We will answer using the information above.</p>
+<label for="procQ">Your question</label>
+<input id="procQ" placeholder="Will an MRI hurt? How long does an EEG take?" type="text"/>
+<div class="actions">
+<button class="btn" id="procAsk">Ask</button>
+<button class="btn" id="procClear">Clear chat</button>
+<button class="btn small" data-read="">🔊 Read this box</button>
+</div>
+<div aria-live="polite" class="cards" id="procChat"></div>
+</article>
+</section>
+<footer class="wrap">
+<p>© <span id="year"></span> incluDS — Diversity &amp; inclusion for everyone.</p>
+</footer>
+</main>
+<!-- Hidden Google Website Translator -->
+<div id="google_translate_element"></div><br/><br/><br/>
+<script>
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ar,bn,de,en,es,fr,hi,it,ja,ko,nl,pl,pt,ru,tl,vi,zh-CN,zh-TW',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Site Search Modal -->
+<div aria-hidden="true" aria-labelledby="searchTitle" class="modal" id="searchModal" role="dialog">
+<div class="panel">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+<h3 id="searchTitle" style="margin:0">Site-wide search results</h3>
+<button class="btn small" onclick="SiteSearch.close()">Close</button>
+</div>
+<div id="searchResults" style="margin-top:10px"></div>
+</div>
+</div>
+
+</body>
+</html>
